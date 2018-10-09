@@ -1,1 +1,6 @@
 .DS_Store
+*.csv
+*.zip
+*.gitignore
+.idea/*
+.ipynb_checkpoints/

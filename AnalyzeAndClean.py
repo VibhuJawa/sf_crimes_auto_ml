@@ -22,9 +22,11 @@ from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.colors import LogNorm
 import pylab
 
+data_dir = "data"
+
 # Load Data into pandas DataFrames
-train = pandas.read_csv('train.csv', parse_dates=['Dates'])
-test = pandas.read_csv('test.csv', parse_dates=['Dates'])
+train = pandas.read_csv('{}/train.csv'.format(data_dir), parse_dates=['Dates'])
+test = pandas.read_csv('{}/test.csv'.format(data_dir), parse_dates=['Dates'])
 
 # short versions for debugging
 #train = train.head(1000)
@@ -199,9 +201,10 @@ MultLogOdds = pandas.DataFrame(MultLogOdds)
 MultLogOdds.columns=["MultProbs"+str(x+1) for x in range(len(MultLogOdds.columns))]
 # drop row 0
 MultLogOdds = MultLogOdds[1:]
-
+print(MultLogOdds.head)
 MultLogOdds.insert(0, 'NumMultCrimes', list(range(1,4)))
 # add the log odds to train and test
+# train = pandas.concat([train, MultLogOdds],join='left')
 train = train.merge(MultLogOdds, how='left')
 test = test.merge(MultLogOdds, how='left')
 
