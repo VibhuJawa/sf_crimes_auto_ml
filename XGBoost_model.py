@@ -40,9 +40,9 @@ from xgboost import plot_tree
 testingModels = False
 
 # load the cleaned and engineered data
-train=pandas.read_csv('train_new.csv')
-test=pandas.read_csv('test_new.csv')
-
+train=pandas.read_csv('train_processed_split.csv')
+test=pandas.read_csv('test_processed_split.csv')
+#test = test df_train[df_train.columns.difference(['Category'])]
 # standard-scale the raw x-y
 
 xy_scaler = preprocessing.StandardScaler() 
