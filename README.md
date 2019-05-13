@@ -1,5 +1,8 @@
-# San-Francisco-crimes
+Most of the code is taken from : 
+https://github.com/MichaelPluemacher/San-Francisco-crimes
 
+
+# San-Francisco-crimes
 ## Introduction
 Goal of this competition hosted by kaggle,
 
